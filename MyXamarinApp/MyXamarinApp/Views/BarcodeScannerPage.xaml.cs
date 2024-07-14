@@ -4,7 +4,6 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using ZXing;
-using ZXing.Net.Mobile.Forms;
 
 namespace MyXamarinApp.Views
 {
