@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:zx="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms"
+             xmlns:vm="clr-namespace:MyXamarinApp.ViewModels"
+             x:Class="MyXamarinApp.Views.BarcodeScannerPage">
+
+    <!--<ContentPage.BindingContext>
+        <vm:BarcodeScannerViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+        <Grid>
+            <zx:ZXingScannerView x:Name="zxing"
+                                 IsScanning="{Binding IsScanning}"
+                                 IsAnalyzing="{Binding IsAnalyzing}"
+                                 IsTorchOn="{Binding IsTorchOn}"
+                                 OnScanResult="Handle_OnScanResult"
+                                 HorizontalOptions="FillAndExpand"
+                                 VerticalOptions="FillAndExpand" />
+            <zx:ZXingDefaultOverlay x:Name="overlay"
+                                    TopText="Hold your phone up to the barcode"
+                                    BottomText="Scanning will happen automatically"
+                                    ShowFlashButton="True"
+                                    FlashButtonClicked="OnFlashButtonClicked"
+                                    BackgroundColor="Transparent"/>
+            <!--FlashButtonText="Toggle Flash"-->
+
+            <Button WidthRequest="100"
+                    HeightRequest="50"
+                    HorizontalOptions="Start"
+                    VerticalOptions="End"
+                    Text="Disable"
+                    Command="{Binding StopScanningCommand}" />
+            <Button WidthRequest="100"
+                    HeightRequest="50"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Text="Cancel"
+                    Command="{Binding CancelScanningCommand}" />
+            <Button WidthRequest="100"
+                    HeightRequest="50"
+                    HorizontalOptions="End"
+                    VerticalOptions="End"
+                    Text="Enable"
+                    Command="{Binding StartScanningCommand}" />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
